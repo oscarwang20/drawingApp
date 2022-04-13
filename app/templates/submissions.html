@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>User Submissions</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/css/foundation.css">
+    </head>
+    <body>
+        <div class="top-bar">
+            <div class="top-bar-left cool">
+                <ul class="dropdown menu" data-dropdown-menu style="background-color:black">
+                    <li class="menu-text">coins</li>
+                    <li>
+                        <a href="{{ url_for('index') }}">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="top-bar-right">
+                <ul class="dropdown menu" data-dropdown-menu style="background-color:black">
+                    {%if user %}
+                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    {%else%}
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
+                    {%endif%}
+                </ul>
+            </div>
+        </div>
+
+        <div class="cell text-center">
+            <h1 class="text-primary" >User Submissions</h1>
+
+        </div>
+<!-- 
+        <ul>
+            {% for book in book_dictionary %}
+            <li>
+                <a href = "/load/{{book['id']}}">"{{book['title']}}"</a>
+            </li>
+            {% endfor %}
+        </ul> -->
+
+        {%for book in book_dictionary%}
+        <div class="cell">
+            <a href="/load/{{book['id']}}">
+                <div class="callout secondary" style="margin-left: 15px;margin-right: 15px;">
+                    <h4>{{book['title']}} </h4>
+                    <p> By: {{book['author']}} </p>
+                </div>
+            </a>
+        </div>
+        {%endfor%}
+
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            canvas {
+                border: 2px solid black;
+            }
+        </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="grid-x grid-padding-x">
+            <div class="large-6 cell">
+              <div><canvas id="canvas" width="675" height="675"></canvas></div>
+            </div>
+      
+            <div class="large-6 cell">
+      
+              <div class="float-right">
+                <div class="slidecontainer">
+                  <input type="range" min="1" max="10" value="5" class="slider" id="penSize">
+                </div>
+      
+                <form class="float-right">
+                  <select id="penColor">
+                    <option value="1" selected="selected">black</option>
+                    <option value="2">red</option>
+                    <option value="3">orange</option>
+                    <option value="4">yellow</option>
+                    <option value="5">green</option>
+                    <option value="6">blue</option>
+                    <option value="7">indigo</option>
+                  </select>
+                </form>
+      
+                <div><button class="button" id="pen"> Pen </button>
+      
+                  <div class="slidecontainer">
+                    <input type="range" min="1" max="40" value="20" class="slider" id="eraserSize">
+                  </div>
+
+                <div><button class="button" id="clear">Clear Drawing</button></div>
+                <div><button class="button" id="save">Save Frame</button></div>
+        <div id="holder"></div>
+        <script src="static/js/cookieTest.js"></script>
+    </body>
+</html>

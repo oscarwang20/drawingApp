@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>User History</title>
+
+    <!-- Compressed CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/foundation.css">
+
+</head>
+
+<body>
+
+
+    <div class="top-bar">
+        <div class="top-bar-left cool">
+            <ul class="dropdown menu" data-dropdown-menu style="background-color:black">
+                <li class="menu-text">coins</li>
+                <li>
+                    <a href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('test') }}">Submissions</a>
+                </li>
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="dropdown menu" data-dropdown-menu style="background-color:black">
+                {%if user %}
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                {%else%}
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                {%endif%}
+            </ul>
+        </div>
+    </div>
+
+    <div class="container text-center" style=" padding-top: 15px;margin-top: 10%; margin-left: 10%; margin-right: 10%; background-color: rgb(0, 192, 206);">
+
+        <div class="col-lg-12 text-align-center">
+            <h1>Welcome {{user}}!</h1>
+        </div>
+
+        <div class="btn-container"> 
+           
+
+
+            <a href="{{ url_for('beep') }}" id="create" type="button" class="btn cool-btn">Create a GIF!</a>
+ 
+            
+
+            <!-- <ul class="dropdown menu" data-dropdown-menu>
+                {%if user %}
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                {%else%}
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                {%endif%}
+            </ul> -->
+
+        </div>
+
+        
+
+        
+    </div>
+    <!-- Compressed JavaScript -->
+</body>
+
+</html>

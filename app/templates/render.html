@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <style>
+
+      </style>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+      <link rel="stylesheet" href="../static/css/beeps.css" />
+      <link rel="stylesheet" href="../static/css/foundation.css" />
+  </head>
+  <body>
+
+    <div class="top-bar">
+      <div class="top-bar-left cool">
+          <ul class="dropdown menu" data-dropdown-menu style="background-color:black">
+              <li class="menu-text">coins</li>
+              <li>
+                  <a href="{{ url_for('index') }}">Home</a>
+              </li>
+              <li>
+                  <a href="{{ url_for('test') }}">Submissions</a>
+              </li>
+          </ul>
+      </div>
+      <div class="top-bar-right">
+          <ul class="dropdown menu" data-dropdown-menu style="background-color:black">
+              {%if author %}
+              <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+              {%else%}
+              <li><a href="{{ url_for('register') }}">Register</a></li>
+              <li><a href="{{ url_for('login') }}">Log In</a></li>
+              {%endif%}
+          </ul>
+      </div>
+  </div>
+      <h1>{{title}} by {{author}}</h1>
+      <!-- <h2>By {{author}}</h2> -->
+      <div class="large-6 cell">
+        <div><canvas id="canvas" width="600" height="600" style="margin-right:20%; margin-left: 20%; margin-top: auto;"></canvas></div>
+      </div>
+
+      </div>
+    </div>
+
+
+    <div class="grid-x grid-padding-x">
+      <div id="frameSaves"></div>
+    
+    
+    <script  src="/static/js/render_version_fml.js" type="text/javascript"></script>
+    <script>
+      let m = "{{images}}"
+      m = m.replace(/&#34;/g,'"')
+      console.log(m)
+      x = loadJSONPayload(m);
+      animateCanvas()
+    </script>
+    </div>
+
+  </body>
+</html>

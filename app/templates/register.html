@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>coins</title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
+
+    <!-- Compressed CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/foundation.css">
+
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu style="background-color:black">
+                <li class="menu-text">coins</li>
+                <li>
+                    <a href="{{ url_for('index') }}">Home</a>
+                </li>
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="dropdown menu" data-dropdown-menu style="background-color:black">
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid-x grid-padding-x" style="margin-top:30px">
+        <div class="cell text-center">
+            <h1 class="text-primary">Register</h1>
+        </div>
+        <div class="cell">
+            <form method="POST">
+                <label for="name">Username:</label>
+                <input type="text" name="name" id="name" required>
+                <label for="name">Password:</label>
+                <input type="password" name="password" id="password" required>
+                <label for="name">Enter Password Again:</label>
+                <input type="password" name="password2" id="password2" required>
+                {% if error != "" %}
+                <p style="color:red">{{ error }}</p>
+                {% endif %}
+                <button class="submit button" name="register" id="register">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- Compressed JavaScript -->
+</body>
+
+</html>
